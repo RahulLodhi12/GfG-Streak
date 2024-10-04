@@ -18,7 +18,7 @@ class Solution {
         
         for(int i=0;i<n;i++){
             sum+=arr[i];
-            if(sum==0){
+            if(sum==0){ //if subarray starting from 0 idx.
                 maxLen=max(maxLen,i+1);
             }
             else{
