@@ -39,6 +39,8 @@ class Solution {
     // Function to find pair with maximum sum
     public int pairWithMaxSum(int arr[]) {
         // Your code goes here
+        //Sliding window concept with window size k=2
+        //since maximum Sum for this question will always be the sum of adjacent elements in pair(k=2)
         int k=2;
         int n=arr.length;
         int i=0,j=0;
