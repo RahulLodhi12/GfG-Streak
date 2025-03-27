@@ -9,22 +9,22 @@ import java.util.HashMap;
 
 class Solution {
 
-    static int findFloor(int[] arr, int x) {
+    static int findFloor(int[] nums, int x) {
         // write code here
-        int ans=-1;
-        int n=arr.length;
-        int st=0;
-        int ed=n-1;
-        while(st<=ed){
-            int mid = st + (ed-st)/2;
-            if(arr[mid]>x){
-                ed=mid-1;
+        int n=nums.length;
+        int s=0,e=n-1;
+        int ans=-1; //floor value means largest value<=x
+        while(s<=e){
+            int m = s + (e-s)/2;
+            if(nums[m]>x){
+                e=m-1;
             }
-            else if(arr[mid]<=x){
-                ans=mid;
-                st=mid+1;
+            else{ //ans will be here
+                ans=Math.max(ans,m);
+                s=m+1;
             }
         }
+
         return ans;
     }
 }
