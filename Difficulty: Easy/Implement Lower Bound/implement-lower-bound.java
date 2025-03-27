@@ -30,21 +30,24 @@ class GFG {
 
 
 class Solution {
-    int lowerBound(int[] arr, int target) {
+    int lowerBound(int[] nums, int x) {
         // code here
-        int n=arr.length;
-        int st=0;
-        int ed=n-1;
-    
-        while(st<=ed){
-            int mid = st + (ed-st)/2;
-            if(arr[mid]>=target){
-                ed=mid-1;
+        int n=nums.length;
+        int s=0,e=n-1;
+
+        int idx=n; //ans;
+
+        while(s<=e){
+            int m = s + (e-s)/2;
+            if(nums[m]<x){
+                s=m+1;
             }
-            else if(arr[mid]<target){
-                st=mid+1;
+            else if(nums[m]>=x){ //ans will be here
+                idx = Math.min(idx,m);
+                e=m-1;
             }
         }
-        return st; //starting point is ans. for many questions.
+
+        return idx;
     }
 }
