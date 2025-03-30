@@ -24,23 +24,17 @@ this function*/
 class Solution {
     int floorSqrt(int n) {
         // Your code here
-        int s=1;
-        int e=n;
         int ans=-1;
-        while(s<=e){
-            int m = s + (e-s)/2;
-            if(m*m>n){
-                e=m-1;
-            }
-            else if(m*m<n){
-                ans=m;
-                s=m+1;
+
+        for(int i=1;i<=n;i++){
+            if(i*i<=n){
+                ans=i;
             }
             else{
-                return m;
+                return ans;
             }
         }
-        
+
         return ans;
     }
 }
