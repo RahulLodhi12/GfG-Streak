@@ -1,0 +1,12 @@
+<h2><a href="https://www.geeksforgeeks.org/problems/find-all-distinct-triplets-with-given-sum/1">Find all distinct triplets with given sum</a></h2><h3>Difficulty Level : Difficulty: Easy</h3><hr><div class="problems_problem_content__Xm_eO" bis_skin_checked="1"><p><span style="font-size: 18px;">Given an array <strong>arr[]</strong>, and an integer <strong>target</strong>, find all possible <strong>unique</strong> triplets in the array whose sum is equal to the given <strong>target</strong> value. We can return triplets in any order, but all the returned triplets should be <strong>internally sorted</strong>, i.e., for any triplet [q1, q2, q3], the condition q1 ≤ q2 ≤ q3 should hold.</span></p>
+<p><strong style="font-size: 18px;">Examples:</strong></p>
+<pre><span style="font-size: 18px;"><strong>Input: </strong></span><span style="font-size: 18px;">arr[] = [12, 3, 6, 1, 6, 9], target = 24 </span><span style="font-size: 18px;">
+<strong>Output: </strong>[[3, 9, 12], [6, 6, 12]]<strong>
+Explanation: </strong></span><span style="font-size: 18px;">Triplets with sum 24 are (3, 9, 12) and (6, 6, 12). </span></pre>
+<pre><span style="font-size: 14pt;"><strong>Input: </strong>arr[] = [1, 1, 1, 1], target = 3
+<strong>Output: </strong>[[1, 1, 1]]<strong>
+Explanation: </strong></span><span style="font-size: 18.6667px;">Triplets with sum 3 are (1, 1, 1). </span></pre>
+<pre><span style="font-size: 18px;"><strong>Input: </strong>arr[] = [10, 12, 10, 15],</span><span style="font-size: 18px;"> target = 32</span><span style="font-size: 18px;">
+<strong>Output: </strong>[[10, 10, 12]]</span><span style="font-size: 14pt;"><strong>
+Explanation: </strong></span><span style="font-size: 18.6667px;">Triplets with sum 32 are (10, 10, 12).</span></pre>
+<p><span style="font-size: 18px;"><strong>Constraints:<br></strong>3 &lt;= arr.size() &lt;= 10<sup>3</sup><strong><br></strong></span><span style="font-size: 18px;">0 &lt;= arr[i] </span><span style="font-size: 18px;">&lt;= 10<sup>4</sup></span><span style="font-size: 18px;"><br></span><span style="font-size: 18px;">1 &lt;= target &lt;= 10<sup>4</sup></span></p></div><br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Sorting</code>&nbsp;<code>two-pointer-algorithm</code>&nbsp;<code>Arrays</code>&nbsp;<code>Hash</code>&nbsp;
