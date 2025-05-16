@@ -57,37 +57,32 @@ class GfG {
 class Solution {
     // Function to find all combinations of elements
     // in array arr that sum to target.
-    static void solve(int[] arr, ArrayList<Integer> temp, int idx, int n, int k, int sum, Set<ArrayList<Integer>> ans){
+    static void combinationSum2_optimal(int[] arr, ArrayList<Integer> temp, int i, int n, int target, int sum, ArrayList<ArrayList<Integer>> ans){
         //base case
-        if(idx==n){
-            if(sum==k){
-                ans.add(new ArrayList<>(temp));
-                return;
-            }
-            else{
-                return;
-            }
+        if(sum==target){
+            ans.add(new ArrayList<>(temp)); //O(k), because we are putting a ds into another ds
+            return;
         }
 
-        //take
-        if(sum+arr[idx]<=k){
-            temp.add(arr[idx]);
-            solve(arr,temp,idx+1,n,k,sum+arr[idx],ans);
+        for(int k=i;k<n;k++){
+            if(k>i && arr[k]==arr[k-1]) continue;
+            if(sum+arr[k]>target) break;
+
+            temp.add(arr[k]);
+            combinationSum2_optimal(arr,temp,k+1,n,target,sum+arr[k],ans);
             temp.remove(temp.size()-1);
         }
-
-        //skip
-        solve(arr,temp,idx+1,n,k,sum,ans);
     }
+    
     static ArrayList<ArrayList<Integer>> uniqueCombinations(int[] arr, int k) {
         // add your code here
         ArrayList<Integer> temp = new ArrayList<>();
-//        List<List<Integer>> ans = new ArrayList<>();
-        Set<ArrayList<Integer>> ans = new HashSet<>();
+        ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
         int n = arr.length;
 
         Arrays.sort(arr);
-        solve(arr,temp,0,n,k,0,ans);
+        
+        combinationSum2_optimal(arr,temp,0,n,k,0,ans);
 
         return new ArrayList<>(ans);
     }
