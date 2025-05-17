@@ -55,29 +55,30 @@ class GFG {
 // User function Template for Java
 
 class Solution {
-    public static void solve(int[] arr, ArrayList<Integer> temp, int idx, int n, Set<ArrayList<Integer>> ans){
+    
+    public static void printAllUniqueSubsets_optimal(int[] arr, int i, int n, ArrayList<Integer> temp, ArrayList<ArrayList<Integer>> ans){
+        ans.add(new ArrayList<>(temp));
+
         //base case
-        if(idx==n){
-            ans.add(new ArrayList<>(temp));
-            return;
+        if(i==n) return;
+
+        for(int k=i;k<n;k++){
+            if(k>i && arr[k]==arr[k-1]) continue;
+
+            temp.add(arr[k]);
+            printAllUniqueSubsets_optimal(arr,k+1,n,temp,ans);
+            temp.remove(temp.size()-1); //backtrack
         }
-
-        //take
-        temp.add(arr[idx]);
-        solve(arr,temp,idx+1,n,ans);
-
-        //skip
-        temp.remove(temp.size()-1);
-        solve(arr,temp,idx+1,n,ans);
     }
+    
     public static ArrayList<ArrayList<Integer>> printUniqueSubsets(int[] nums) {
         int n=nums.length;
         Arrays.sort(nums);
         ArrayList<Integer> temp = new ArrayList<>();
-        Set<ArrayList<Integer>> ans = new HashSet<>();
+        ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
 
-        solve(nums,temp,0,n,ans);
+        printAllUniqueSubsets_optimal(nums,0,n,temp,ans); //(2^n)*k
         
-        return new ArrayList<>(ans);
+        return ans;
     }
 }
