@@ -21,9 +21,48 @@ The problem can be found at the following link: [Question Link](https://www.geek
 - **Expected Time Complexity:** O(n*target)
 - **Expected Auxiliary Space Complexity:** O(n*target)
 
-### Accepted Solutions (2)
+### Accepted Solutions (3)
 
 #### Solution 1 (C++)
+
+- **Submitted:** 2026-11-16 00:35:42
+- **Status:** Correct
+- **Marks:** 0
+
+```cpp
+class Solution {
+	public:
+	int dp[1001][1001];
+	const int MOD = 1e9+7;
+	int perfectSum(vector<int>& arr, int target) {
+		// code here
+		int n = arr.size();
+		memset(dp, -1, sizeof(dp));
+		return solve(n, arr, target)%MOD;
+	}
+	int solve(int n, vector<int>& arr, int target) {
+		// base case
+		if (target == 0 and n == 0) {
+			return 1;
+		}
+		if (n == 0) {
+			return 0;
+		}
+		
+		// provide
+		if (dp[n][target] != -1)
+			return dp[n][target];
+		
+		if (arr[n - 1] <= target) {
+			return dp[n][target] = (solve(n - 1, arr, target - arr[n - 1])%MOD + solve(n - 1, arr, target)%MOD)%MOD;
+		}
+		return dp[n][target] = solve(n - 1, arr, target)%MOD;
+		
+	}
+};
+```
+
+#### Solution 2 (C++)
 
 - **Submitted:** 2026-11-13 00:06:54
 - **Status:** Correct
@@ -58,7 +97,7 @@ class Solution {
 };
 ```
 
-#### Solution 2 (C++)
+#### Solution 3 (C++)
 
 - **Submitted:** 2025-05-13 09:32:18
 - **Status:** Correct
@@ -108,4 +147,4 @@ class Solution {
 }
 ```
 
-*Generated on: 11/13/2026, 12:07:33 AM*
+*Generated on: 11/16/2026, 12:44:32 AM*
