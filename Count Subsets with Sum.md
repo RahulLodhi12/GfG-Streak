@@ -23,7 +23,7 @@ The problem can be found at the following link: [Question Link](https://www.geek
 
 ### Accepted Solutions (3)
 
-#### Solution 1 (C++)
+#### Solution 1 (C++) with MOD to avoid TLE. eg. const int MOD = 1e9+7 and use as %MOD
 
 - **Submitted:** 2026-11-16 00:35:42
 - **Status:** Correct
