@@ -29,9 +29,91 @@ trueExplanation: The entire array can be taken as a subset, giving 1 + 2 + 3 = 6
 - **Expected Time Complexity:** O(sum*n)
 - **Expected Auxiliary Space Complexity:** O(sum)
 
-### Accepted Solutions (2)
+### Accepted Solutions (4)
 
 #### Solution 1 (C++)
+
+- **Submitted:** 2026-11-16 22:25:38
+- **Status:** Correct
+- **Marks:** 0
+
+```cpp
+class Solution {
+  public:
+    bool isSubsetSum(vector<int>& arr, int sum) {
+        // code here
+        int n=arr.size();
+        bool dp[n+1][sum+1];
+        //1. Initialization
+        for(int i=0;i<n+1;i++){
+            for(int j=0;j<sum+1;j++){
+                if(i==0){
+                    dp[i][j]=false;
+                }
+                if(j==0){
+                    dp[i][j]=true;
+                }
+            }
+        }
+        //2. Iterative
+        for(int i=1;i<n+1;i++){
+            for(int j=1;j<sum+1;j++){
+                if(arr[i-1]<=j){
+                    dp[i][j] = dp[i-1][j-arr[i-1]] || dp[i-1][j];
+                }
+                else{
+                    dp[i][j] = dp[i-1][j];
+                }
+            }
+        }
+        
+        return dp[n][sum];
+    }
+};
+```
+
+#### Solution 2 (C++)
+
+- **Submitted:** 2026-11-16 22:08:38
+- **Status:** Correct
+- **Marks:** 0
+
+```cpp
+class Solution {
+  public:
+    bool isSubsetSum(vector<int>& arr, int sum) {
+        // code here
+        int n=arr.size();
+        bool dp[n+1][sum+1];
+        //1. Initialization
+        for(int i=0;i<n+1;i++){
+            for(int j=0;j<sum+1;j++){
+                if(i==0){
+                    dp[i][j]=false;
+                }
+                if(j==0){
+                    dp[i][j]=true;
+                }
+            }
+        }
+        //2. Iterative
+        for(int i=1;i<n+1;i++){
+            for(int j=1;j<sum+1;j++){
+                if(arr[i-1]<=j){
+                    dp[i][j] = dp[i-1][j-arr[i-1]] || dp[i-1][j];
+                }
+                else{
+                    dp[i][j] = dp[i-1][j];
+                }
+            }
+        }
+        
+        return dp[n][sum];
+    }
+};
+```
+
+#### Solution 3 (C++)
 
 - **Submitted:** 2026-11-12 21:00:30
 - **Status:** Correct
@@ -63,7 +145,7 @@ class Solution {
 };
 ```
 
-#### Solution 2 (C++)
+#### Solution 4 (C++)
 
 - **Submitted:** 2026-11-12 20:58:19
 - **Status:** Correct
@@ -95,4 +177,4 @@ class Solution {
 };
 ```
 
-*Generated on: 11/12/2026, 9:01:11 PM*
+*Generated on: 11/16/2026, 10:25:46 PM*
