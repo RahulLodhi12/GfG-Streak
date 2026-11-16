@@ -31,7 +31,7 @@ trueExplanation: The entire array can be taken as a subset, giving 1 + 2 + 3 = 6
 
 ### Accepted Solutions (4)
 
-#### Solution 1 (C++)
+#### Solution 1 (C++): Using Tabulation (Top-Down approach)
 
 - **Submitted:** 2026-11-16 22:25:38
 - **Status:** Correct
