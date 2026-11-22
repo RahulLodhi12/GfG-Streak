@@ -1,4 +1,4 @@
-## 01. Let's OBSERVE!
+## Partitions with Given Difference
 
 The problem can be found at the following link: [Question Link](https://www.geeksforgeeks.org/problems/partitions-with-given-difference/1)
 
